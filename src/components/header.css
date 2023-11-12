@@ -1,6 +1,18 @@
 /* Header.css */
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-  }
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar-container input {
+  margin-right: 10px;
+}

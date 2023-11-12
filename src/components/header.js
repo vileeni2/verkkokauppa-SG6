@@ -4,8 +4,12 @@ import './header.css';
 
 const Header = () => {
   return (
-    <header>
-      <h1>Amazing Shoe Store</h1>
+    <header className="header-container">
+      <h1>AMAZING SHOE STORE</h1>
+      <div className="search-bar-container">
+        <input type="text" placeholder="Search..." />
+        <button type="button">Search</button>
+      </div>
     </header>
   );
 };
