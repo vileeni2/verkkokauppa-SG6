@@ -1,0 +1,33 @@
+:root {
+    --primary-color: #181717;
+    --secondary-color: #2b2a2a;
+    --tertiary-color: #656464;
+    --highlight-color: #8d0000;
+    --primary-background: #d4d4d4;
+    --seconday-background: #f0f0f0;
+  }
+
+  .horizontal-list-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: row; 
+    margin-bottom: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 0;
+  }
+
+  .custom-list-item {
+    border: 2px solid var(--highlight-color);
+    box-sizing: border-box;
+    color: #fff;
+    background-color: var(--primary-color);
+    margin-right: 20px;
+    border-radius: 0;
+    padding: 10px 60px;
+}
+
+.custom-list-item:not(:first-child) {
+    border-top: 2px solid var(--highlight-color);
+}
+
+

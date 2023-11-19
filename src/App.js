@@ -6,6 +6,7 @@ import Carousels from './components/Carousels';
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/login';
 import Register from './pages/register';
+import HorizontalExample from './components/category';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <div>
       <Header />
+      <HorizontalExample /> {/* Lisää Category tähän */}
        <Carousels />
       <Routes>
         <Route path="/login" element={<Login />} />
