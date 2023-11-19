@@ -1,18 +1,27 @@
-// App.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/header';
 import Footer from './components/footer';
 import Carousels from './components/Carousels';
+import { Route, Routes } from 'react-router-dom';
+import Login from './pages/login';
+import Register from './pages/register';
 
 function App() {
+
+
+
   return (
     <div>
       <Header />
-      <Carousels />
-
+       <Carousels />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
       <main>
-        <p>insert liibalaaba nönönönönönönö</p>
+        {/*Tuleeks tähän joskus jotain :D*/}
+      <p>insert liibalaaba nönönönönönönö</p>
       </main>
       <Footer />
     </div>

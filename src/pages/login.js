@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../components/Login.css';
+import { Link } from 'react-router-dom';
 
 function Login() {
 
@@ -22,12 +23,14 @@ function Login() {
           <label htmlFor="password" className="form-label">
             Password:
           </label>
-          <input/>
+          <input />
         </div>
         <button type="button" className="btn btn-outline-danger">
           Login
         </button>
-        <button type="button" className="btn btn-outline-danger">No account yet? Register here.</button>
+        <Link to="/register" className="btn btn-outline-danger">
+          No account yet? Register here.
+        </Link>
       </form>
     </div>
   );
