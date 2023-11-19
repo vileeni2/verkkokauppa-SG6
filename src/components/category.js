@@ -10,8 +10,7 @@ const HorizontalExample = () => {
       <ListGroup.Item className="custom-list-item">Heels</ListGroup.Item>
       <ListGroup.Item className="custom-list-item">Boots</ListGroup.Item>
       <ListGroup.Item className="custom-list-item">Loafers</ListGroup.Item>
-      <ListGroup.Item className="custom-list-item">Winter Shoes</ListGroup.Item>
-      <ListGroup.Item className="custom-list-item">Hiking Shoes</ListGroup.Item>
+      <ListGroup.Item className="custom-list-item">Winter</ListGroup.Item>
     </ListGroup>
   );
 };
