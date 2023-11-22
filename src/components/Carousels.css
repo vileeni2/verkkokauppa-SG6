@@ -1,0 +1,17 @@
+/* Carousels.css */
+
+.CarouselImage {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .CategoryText {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .CarouselItem {
+    text-align: center; /* Lisää tämä rivi keskittämään kuvan ja tekstin */
+  }
+  

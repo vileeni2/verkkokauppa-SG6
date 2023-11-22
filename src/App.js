@@ -6,7 +6,8 @@ import Carousels from './components/Carousels';
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/login';
 import Register from './pages/register';
-import HorizontalExample from './components/category';
+
+
 
 function App() {
 
@@ -15,15 +16,18 @@ function App() {
   return (
     <div>
       <Header />
-      <HorizontalExample /> {/* Lisää Category tähän */}
+      <p>Welcome to AmazingShoeStore</p>
        <Carousels />
+      <boots/>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
       <main>
         {/*Tuleeks tähän joskus jotain :D*/}
-      <p>insert liibalaaba nönönönönönönö</p>
+      <p>We aim to offer high-quality and distinctive eye-catchers.
+      Our products are domestic and we strive to offer only the best.
+      </p>
       </main>
       <Footer />
     </div>
