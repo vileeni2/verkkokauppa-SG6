@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './header.css';
 import Login from '../pages/login'; 
 import 'bootstrap/dist/css/bootstrap.min.css'; 
@@ -9,6 +10,12 @@ const Header = () => {
   return (
     <header className="header-container">
       <h1>AMAZING SHOE STORE</h1>
+
+      <div className="HomBtn">
+      <Link to="/">
+        <button type='button'>Return</button>
+      </Link>
+    </div>
 
       <div className="shopping-cart">
        <button type='button'>ostoskori</button>
