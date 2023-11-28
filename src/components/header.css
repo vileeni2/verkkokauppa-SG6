@@ -16,3 +16,9 @@
 .search-bar-container input {
   margin-right: 10px;
 }
+
+.dropdown-menu.show{
+  background-color: #333 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
