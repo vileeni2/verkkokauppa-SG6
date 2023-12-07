@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './Carousels.css';
-import { Link, useNavigate } from 'react-router-dom'; // Lisätty useNavigate
+import { Link, useNavigate } from 'react-router-dom'; 
 
 const Carousels = () => {
   const responsive = {
@@ -12,10 +12,10 @@ const Carousels = () => {
     mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
   };
 
-  const navigate = useNavigate(); // Alusta useNavigate-koukku
+  const navigate = useNavigate(); 
 
   const handleCategoryClick = (category) => {
-    navigate(`/category/${category}`);
+    navigate(`products/${category}`);
   };
 
   return (

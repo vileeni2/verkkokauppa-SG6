@@ -5,7 +5,7 @@ import Footer from './components/footer';
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/login';
 import Register from './pages/register';
-import HomePage from './pages/HomePage'; // Tuo HomePage-tiedosto
+import HomePage from './pages/HomePage'; 
 import CategoryPage from './pages/CategoryPage';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/carousel/:category" element={<CategoryPage />} />
+        <Route path="/products/:category" element={<CategoryPage />} />
       </Routes>
       <Footer />
     </div>
