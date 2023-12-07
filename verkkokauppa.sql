@@ -52,31 +52,31 @@ INSERT INTO product_category (category_name, category_description) VALUES
 
 -- Lisää tuotteet kategorioihin
 INSERT INTO product (product_name, price, image_url, category) VALUES
-('glitter heels', 50, 'heels1.jpg', 'heels'),
-('leather heels', 45, 'heels2.jpg', 'heels'),
-('white heels', 35, 'heels3.jpg', 'heels'),
-('high black heels', 39, 'heels4.jpg', 'heels'),
-('colorful sneakers', 50, 'sneakers1.jpg', 'sneakers'),
-('running sneakers', 90, 'sneakers2.jpg', 'sneakers'),
-('blue sneakers', 60, 'sneakers3.jpg', 'sneakers'),
-('white and red sneakers', 120, 'sneakers4.jpg', 'sneakers'),
-('retro boots', 80, 'boots1.jpg', 'boots'),
-('blue boots', 30, 'boots2.jpg', 'boots'),
-('black boots', 130, 'boots3.jpg', 'boots'),
-('brown boots', 90, 'boots4.jpg', 'boots');
+('glitter heels', 50, 'img/heels/heels1.jpg', 'heels'),
+('leather heels', 45, 'img/heels/heels2.jpg', 'heels'),
+('white heels', 35, 'img/heels/heels3.jpg', 'heels'),
+('high black heels', 39, 'img/heels/heels4.jpg', 'heels'),
+('colorful sneakers', 50, 'img/sneakers/sneakers1.jpg', 'sneakers'),
+('running sneakers', 90, 'img/sneakers/sneakers2.jpg', 'sneakers'),
+('blue sneakers', 60, 'img/sneakers/sneakers3.jpg', 'sneakers'),
+('white and red sneakers', 120, 'img/sneakers/sneakers4.jpg', 'sneakers'),
+('retro boots', 80, 'img/Boots/boots1.jpg', 'boots'),
+('blue boots', 30, 'img/Boots/boots2.jpg', 'boots'),
+('black boots', 130, 'img/Boots/boots3.jpg', 'boots'),
+('brown boots', 90, 'img/Boots/boots4.jpg', 'boots');
 
 -- Lisää kaikki tuotteet "allCategories" -kategoriaan
 INSERT INTO product (product_name, price, image_url, category) VALUES
-('glitter heels', 50, 'heels1.jpg', 'allCategories'),
-('leather heels', 45, 'heels2.jpg', 'allCategories'),
-('white heels', 35, 'heels3.jpg', 'allCategories'),
-('high black heels', 39, 'heels4.jpg', 'allCategories'),
-('colorful sneakers', 50, 'sneakers1.jpg', 'allCategories'),
-('running sneakers', 90, 'sneakers2.jpg', 'allCategories'),
-('blue sneakers', 60, 'sneakers3.jpg', 'allCategories'),
-('white and red sneakers', 120, 'sneakers4.jpg', 'allCategories'),
-('retro boots', 80, 'boots1.jpg', 'allCategories'),
-('blue boots', 30, 'boots2.jpg', 'allCategories'),
-('black boots', 130, 'boots3.jpg', 'allCategories'),
-('brown boots', 90, 'boots4.jpg', 'allCategories');
+('glitter heels', 50, 'img/heels/heels1.jpg', 'allCategories'),
+('leather heels', 45, 'img/heels/heels2.jpg', 'allCategories'),
+('white heels', 35, 'img/heels/heels3.jpg', 'allCategories'),
+('high black heels', 39, 'img/heels/heels4.jpg', 'allCategories'),
+('colorful sneakers', 50, 'img/sneakers/sneakers1.jpg', 'allCategories'),
+('running sneakers', 90, 'img/sneakers/sneakers2.jpg', 'allCategories'),
+('blue sneakers', 60, 'img/sneakers/sneakers3.jpg', 'allCategories'),
+('white and red sneakers', 120, 'img/sneakers/sneakers4.jpg', 'allCategories'),
+('retro boots', 80, 'img/Boots/boots1.jpg', 'allCategories'),
+('blue boots', 30, 'img/Boots/boots2.jpg', 'allCategories'),
+('black boots', 130, 'img/Boots/boots3.jpg', 'allCategories'),
+('brown boots', 90, 'img/Boots/boots4.jpg', 'allCategories');
 
