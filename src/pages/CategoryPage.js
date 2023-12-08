@@ -1,4 +1,5 @@
-import React from 'react';
+
+/*import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import '../components/CategoryPage.css';
@@ -52,4 +53,24 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default BasicExample;*/
+
+//kommentoituja ei saa poistaa
+
+//alla olevalla koodilla testataan tietokanta yhteyttä
+import axios from "axios";
+
+  function getProducts() {
+    axios.get('http://localhost:3000/products')
+      .then(resp => console.log(resp.data))
+      .catch( error => console.log(error.message));
+  
+
+  return(
+  <div>
+    <button onClick={getProducts} >paina</button>
+  </div>
+  );
+  };
+
+export default getProducts;

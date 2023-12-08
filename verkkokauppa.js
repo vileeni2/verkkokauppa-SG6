@@ -41,6 +41,7 @@ const conf = {
  */
 app.get('/products', async (req, res) => {
     try {
+       
         const connection = await mysql.createConnection(conf);
 
         const category = req.query.category;

@@ -6,7 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './pages/login';
 import Register from './pages/register';
 import HomePage from './pages/HomePage'; 
-import CategoryPage from './pages/CategoryPage';
+import CategoryPage from './pages/CategoryPage'; 
+
 
 function App() {
   return (
@@ -16,11 +17,14 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/products/:category" element={<CategoryPage />} />
+        <Route path="/category/:category" element={<CategoryPage />} />
       </Routes>
       <Footer />
     </div>
   );
 }
 
-export default App;
+export default App; 
+
+
+

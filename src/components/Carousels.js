@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './Carousels.css';
-import { Link, useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
 
 const Carousels = () => {
   const responsive = {
@@ -15,7 +15,7 @@ const Carousels = () => {
   const navigate = useNavigate(); 
 
   const handleCategoryClick = (category) => {
-    navigate(`products/${category}`);
+    navigate(`category/${category}`);
   };
 
   return (
