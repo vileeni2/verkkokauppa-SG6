@@ -15,7 +15,10 @@ const Carousels = () => {
   const navigate = useNavigate(); 
 
   const handleCategoryClick = (category) => {
-    navigate(`category/${category}`);
+ 
+    console.log(`Clicked category: ${category}`);
+  
+    navigate(`/products/${category}`);
   };
 
   return (
@@ -41,4 +44,3 @@ const Carousels = () => {
 };
 
 export default Carousels;
-

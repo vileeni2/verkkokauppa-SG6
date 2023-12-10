@@ -55,22 +55,47 @@ function BasicExample() {
 
 export default BasicExample;*/
 
-//kommentoituja ei saa poistaa
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Card, Button } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
+import '../components/CategoryPage.css';
 
-//alla olevalla koodilla testataan tietokanta yhteyttä
-import axios from "axios";
+function CategoryPage() {
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
 
-  function getProducts() {
-    axios.get('http://localhost:3000/products')
-      .then(resp => console.log(resp.data))
-      .catch( error => console.log(error.message));
-  
+  useEffect(() => {
+    // Haetaan tuotteet tietokannasta kategorian perusteella
+    axios.get(`http://localhost:3001/products/`, {
+      params: { category: category } // Lisää kategoria parametrina pyyntöön
+      
+    })
+      .then(response => setProducts(response.data))
+      .catch(error => console.error(error));
+  }, [category]);
 
-  return(
-  <div>
-    <button onClick={getProducts} >paina</button>
-  </div>
+  return (
+    <div>
+      <h2>{category} : Products</h2>
+      <div className="card-container">
+        {products.map(product => (
+          <Card key={product.id} className="card">
+            <Card.Img variant="top" src={`./${product.image_url}`} />
+            <Card.Body className="card-body">
+              <Card.Title>{product.product_name}</Card.Title>
+              <Card.Text>{product.price}€</Card.Text>
+              <Button variant="primary">Add to cart</Button>
+            </Card.Body>
+          </Card>
+        ))}
+      </div>
+    </div>
   );
-  };
+}
 
-export default getProducts;
+export default CategoryPage;
+
+
+
+

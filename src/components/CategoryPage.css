@@ -1,22 +1,29 @@
+/* CategoryPage.css */
+
 .card-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin: 20px; 
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-evenly;
+  margin: 20px;
+}
 
+.card {
+  width: 18rem;
+  margin-bottom: 20px;
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
   .card {
-    width: 18rem;
-    margin-bottom: 20px; 
+    width: 100%;
   }
-
-  .card img {
-    height: 200px;
-    object-fit: cover;
-  }
-
-  @media (max-width: 768px) {
-    .card {
-      width: 100%;
-    }
-  };
+}
