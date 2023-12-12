@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../components/Register.css';
+import axios from 'axios';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -10,10 +11,19 @@ function Register() {
     password: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Tässä vaiheessa voi lisätä lomakkeen tietojen käsittelyn, esim. lähettää ne palvelimelle.
-    console.log(formData);
+    try {
+      const response = await axios.post('http://localhost:3001/register', formData);
+      console.log(formData);
+
+      alert('Rekisteröinti onnistui!', response.data);
+    } catch (error) {
+      console.error('Error registering the user', error);
+
+      alert('Rekisteröinti epäonnistui');
+    }
     // Tähän voi lisätä lisälogiikkaa tai siirtyä seuraavaan näkymään.
   };
 
