@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../components/Login.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -9,10 +10,19 @@ function Login() {
     password: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Tässä vaiheessa voi lisätä lomakkeen tietojen käsittelyn, esim. lähettää ne palvelimelle.
-    console.log(formData);
+    try {
+      const response = await axios.post('http://localhost:3001/login', formData);
+      console.log(response.data);
+
+      alert('Kirjautuminen onnistui!', response.data);
+    } catch (error) {
+      console.error('Error during login', error);
+
+      alert('Kirjautuminen epäonnistui');
+    }
     // Tähän voi lisätä lisälogiikkaa tai siirtyä seuraavaan näkymään.
   };
 
