@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql2');
+const bcrypt = require('bcrypt');
 require('dotenv').config({ path: '../src/.env' });
 
 const app = express();
@@ -10,8 +11,10 @@ app.use(cors());
 
 app.use(express.json());
 
-app.post('/register', (req, res) => {
+app.post('/register', async (req, res) => {
     const { firstName, lastName, username, password } = req.body;
+
+    const hashedPw = await bcrypt.hash(password, 10);
 
     const connection = mysql.createConnection({
         host: process.env.DB_HOST,
@@ -21,7 +24,7 @@ app.post('/register', (req, res) => {
     });
 
     const sql = 'INSERT INTO customer (first_name, last_name, username, pw) VALUES (?,?,?,?)';
-    const values = [firstName, lastName, username, password];
+    const values = [firstName, lastName, username, hashedPw];
 
     connection.query(sql, values, (error, results) => {
         if(error) {
@@ -38,7 +41,7 @@ app.post('/register', (req, res) => {
 
 });
 
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     const connection = mysql.createConnection({
@@ -48,10 +51,10 @@ app.post('/login', (req, res) => {
         database: process.env.DB_DATABASE
     });
 
-    const sql = 'SELECT * FROM customer WHERE username = ? and pw = ?';
-    const values = [username, password];
+    const sql = 'SELECT * FROM customer WHERE username = ?';
+    const values = [username];
 
-    connection.query(sql, values, (error, results) => {
+    connection.query(sql, values, async (error, results) => {
         if (error) {
             console.error('Error during login', error);
             res.status(500).send('Server error');
@@ -59,8 +62,18 @@ app.post('/login', (req, res) => {
         }
 
         if (results.length > 0) {
-            console.log('User logged in');
-            res.status(200).send('User logged in');
+
+            //Tarkista salasana
+            const isValidPw = await bcrypt.compare(password, results[0].pw)
+
+            if(isValidPw) {
+                console.log('User logged in');
+                res.status(200).send('User logged in');
+            } else {
+                console.log('Invalid username or password');
+                res.status(401).send('Invalid username or password');
+            }
+            
         } else {
             console.log('Invalid username or password');
             res.status(401).send('Invalid username or password');
