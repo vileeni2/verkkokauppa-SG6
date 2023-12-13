@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import '../components/CategoryPage.css';
 
-function CategoryPage() {
+function CategoryPage({ addToCart }) {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
 
@@ -29,7 +28,12 @@ function CategoryPage() {
             <Card.Body className="card-body">
               <Card.Title>{product.productName}</Card.Title>
               <Card.Text>{product.price}€</Card.Text>
-              <Button variant="primary">Add to cart</Button>
+              <Button
+                variant="primary"
+                onClick={() => addToCart(product)}
+              >
+                Add to cart
+              </Button>
             </Card.Body>
           </Card>
         ))}
@@ -39,7 +43,3 @@ function CategoryPage() {
 }
 
 export default CategoryPage;
-
-
-
-
