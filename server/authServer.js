@@ -4,6 +4,8 @@ const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 require('dotenv').config({ path: '../src/.env' });
 
+
+//Express-sovellus ja portin määritys
 const app = express();
 const port = 3001;
 
@@ -14,8 +16,10 @@ app.use(express.json());
 app.post('/register', async (req, res) => {
     const { firstName, lastName, username, password } = req.body;
 
+    //Salataan salasana brcyptillä
     const hashedPw = await bcrypt.hash(password, 10);
 
+    //Luodaan tietokantayhteys
     const connection = mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USERNAME,
@@ -23,6 +27,7 @@ app.post('/register', async (req, res) => {
         database: process.env.DB_DATABASE
     });
 
+    //SQL-kysely
     const sql = 'INSERT INTO customer (first_name, last_name, username, pw) VALUES (?,?,?,?)';
     const values = [firstName, lastName, username, hashedPw];
 
@@ -37,6 +42,7 @@ app.post('/register', async (req, res) => {
         res.status(200).send('User registered successfully');
     });
 
+    //Suljetaan yhteys
     connection.end();
 
 });
@@ -44,6 +50,7 @@ app.post('/register', async (req, res) => {
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
+    //Luodaan tietokantayhteys
     const connection = mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USERNAME,
@@ -51,6 +58,7 @@ app.post('/login', async (req, res) => {
         database: process.env.DB_DATABASE
     });
 
+    //SQL-kysely
     const sql = 'SELECT * FROM customer WHERE username = ?';
     const values = [username];
 
@@ -63,7 +71,7 @@ app.post('/login', async (req, res) => {
 
         if (results.length > 0) {
 
-            //Tarkista salasana
+            //Tarkistetaan salasana
             const isValidPw = await bcrypt.compare(password, results[0].pw)
 
             if(isValidPw) {
@@ -80,9 +88,11 @@ app.post('/login', async (req, res) => {
         }
     });
 
+    //Suljetaan tietokantayhteys
     connection.end();
 });
 
+//Kuunnellaan porttia ja tulostetaan viesti käynnistyessä
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
